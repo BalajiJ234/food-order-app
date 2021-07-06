@@ -1,4 +1,5 @@
 import { useContext } from "react";
+
 import Modal from "../UI/Modal";
 
 import CartContext from "../../store/cart-context";
@@ -28,11 +29,12 @@ const Cart = (props) => {
           amount={item.amount}
           price={item.price}
           onRemove={cartItemRemoveHandler.bind(null, item.id)}
-          onAdd={cartItemAddHandler(null, item)}
+          onAdd={cartItemAddHandler.bind(null, item)}
         />
       ))}
     </ul>
   );
+
   return (
     <Modal onClick={props.onClose}>
       {cartItems}
